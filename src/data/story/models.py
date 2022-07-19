@@ -14,16 +14,16 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    title = models.TextField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
+    title = models.CharField(max_length=100)
     date = models.DateTimeField(blank=True, null=True, default=datetime.datetime.now)
     view = models.IntegerField()
 
 
 class Entry(models.Model):
-    name = models.TextField(max_length=100)
-    content = models.TextField()
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post")
+    title = models.TextField(max_length=100)
+    content = models.TextField()
 
 
 class Image(models.Model):
