@@ -10,7 +10,6 @@ class ImageInLine(admin.TabularInline):
 
 class EntryInLine(admin.StackedInline):
     model = Entry
-    inlines = [ImageInLine]
     extra = 1
 
 
