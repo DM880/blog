@@ -29,4 +29,4 @@ class PostAdmin(admin.ModelAdmin):
 #     # ]
 
 
-admin.site.register(Category, PostAdmin)
+admin.site.register(Category,Post,PostAdmin)
