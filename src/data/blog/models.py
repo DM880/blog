@@ -14,7 +14,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default=OTH)
     date = models.DateTimeField(blank=True, null=True, default=datetime.datetime.now)
-    view = models.IntegerField()
+    views = models.IntegerField()
 
     def __str__(self):
         return f"{self.title}"
