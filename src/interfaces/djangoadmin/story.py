@@ -1,5 +1,5 @@
 from django.contrib import admin
-from nested_inline.admin import NestedModelAdmin
+from nested_inline.admin import NestedModelAdmin, NestedStackedInline
 
 from src.data.story.models import Category,Post,Entry,Image,Comment
 
@@ -14,7 +14,8 @@ class CommentInLine(admin.TabularInline):
     model = Comment
 
 
-class PostInLine(admin.StackedInline):
+class PostInLine(NestedStackedInline):
+
     model = Post
 
     inlines = [
