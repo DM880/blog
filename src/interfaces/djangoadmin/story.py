@@ -9,5 +9,17 @@ class EntryInLine(admin.StackedInLine):
     inlines = [Image]
 
 
+class CommentInLine(admin.TabularInLine):
+    model = Comment
+
+
 class PostAdmin(admin.ModelAdmin):
-    model
+    model = Post
+
+    inlines = [
+        EntryInLine,
+        CommentInLine
+    ]
+
+
+admin.site.register(Category, PostAdmin)
