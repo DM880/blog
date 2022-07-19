@@ -11,19 +11,17 @@ class EntryInLine(NestedStackedInline):
     def has_add_permission(self, request, obj):
         return False
 
-
-class CommentInLine(admin.TabularInline):
-    model = Comment
-
-
 class PostInLine(NestedStackedInline):
 
     model = Post
 
     inlines = [
         EntryInLine,
-        CommentInLine
+        Comment
     ]
+
+        def has_add_permission(self, request, obj):
+        return False
 
 
 class CategoryAdmin(NestedModelAdmin):
