@@ -11,7 +11,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    title = models.TextField(max_lenght=100)
+    title = models.TextField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
     date = models.DateTimeField(blank=True, null=True, default=datetime.datetime.now)
     view = models.IntegerField()

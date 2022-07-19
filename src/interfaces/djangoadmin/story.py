@@ -4,12 +4,12 @@ from django.contrib import admin
 from src.data.story.models import Category,Post,Entry,Image,Comment
 
 
-class EntryInLine(admin.StackedInLine):
+class EntryInLine(admin.StackedInline):
     model = Entry
     inlines = [Image]
 
 
-class CommentInLine(admin.TabularInLine):
+class CommentInLine(admin.TabularInline):
     model = Comment
 
 
