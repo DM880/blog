@@ -19,6 +19,7 @@ CATEGORY_CHOICES = (
     (OTH := "OTHER", "other"),
 )
 
+
 class Post(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default=OTH)
     title = models.CharField(max_length=100)
