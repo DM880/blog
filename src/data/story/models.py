@@ -3,16 +3,6 @@ from django.contrib.auth.models import User
 import datetime
 
 
-# class Category(models.Model):
-#     class Meta:
-#         verbose_name_plural = "categories"
-
-#     name =  models.CharField(max_length=20)
-
-#     def __str__(self):
-#         return f"{self.name}"
-
-
 CATEGORY_CHOICES = (
     (TRA := "TRAVEL", "travel"),
     (BOK := "BOOK", "book"),
@@ -28,8 +18,11 @@ class Post(models.Model):
 
 
 class Entry(models.Model):
+    class Meta:
+        verbose_name_plural = "entries"
+
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post")
-    title = models.TextField(max_length=100)
+    title = models.CharField(max_length=100)
     content = models.TextField()
 
 
