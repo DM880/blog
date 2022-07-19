@@ -21,6 +21,8 @@ class CommentInLine(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     model = Post
 
+    display = ['title', 'category']
+
     inlines = [EntryInLine, CommentInLine, ImageInLine]
 
 
