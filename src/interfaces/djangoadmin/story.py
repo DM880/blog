@@ -1,5 +1,4 @@
 from django.contrib import admin
-from nested_inlines.admin import NestedModelAdmin
 
 from src.data.story.models import Category,Post,Entry,Image,Comment
 
