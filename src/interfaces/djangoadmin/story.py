@@ -14,7 +14,8 @@ class CommentInLine(admin.TabularInline):
     model = Comment
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(NestedModelAdmin):
+    model = Post
 
     inlines = [
         EntryInLine,
@@ -22,11 +23,11 @@ class PostAdmin(admin.ModelAdmin):
     ]
 
 
-# class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
 
-#     # inlines = [
-#     #     PostAdmin
-#     # ]
+    inlines = [
+        PostAdmin
+    ]
 
 
-admin.site.register(Category,Post,PostAdmin)
+admin.site.register(Category, CategoryAdmin)
