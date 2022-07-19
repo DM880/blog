@@ -8,6 +8,9 @@ class EntryInLine(NestedStackedInline):
     model = Entry
     inlines = [Image]
 
+    def has_add_permission(self, request, obj):
+        return False
+
 
 class CommentInLine(admin.TabularInline):
     model = Comment
