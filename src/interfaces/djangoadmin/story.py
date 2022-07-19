@@ -6,9 +6,7 @@ from src.data.story.models import Category,Post,Entry,Image,Comment
 
 class EntryInLine(admin.StackedInline):
     model = Entry
-    inlines = [
-        Image
-        ]
+    inlines = [Image]
 
 class CommentInLine(admin.TabularInline):
     model = Comment
