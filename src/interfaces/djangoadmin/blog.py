@@ -21,7 +21,7 @@ class CommentInLine(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     model = Post
 
-    list_filter = ['category', 'date', 'views']
+    list_filter = ['category', 'date', 'views', 'visible']
     list_display = ('title', 'category', 'date', 'views')
     search_fields = ['category', 'date', 'views', 'title', 'comment__content']
 

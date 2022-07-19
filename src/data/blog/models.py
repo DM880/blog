@@ -15,6 +15,7 @@ class Post(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default=OTH)
     date = models.DateTimeField(blank=True, null=True, default=datetime.datetime.now)
     views = models.IntegerField()
+    visible = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.title}"
@@ -27,6 +28,7 @@ class Entry(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="entry")
     title = models.CharField(max_length=100)
     content = models.TextField()
+    visible = models.BooleanField(default=True)
 
 
 class Image(models.Model):
