@@ -11,10 +11,12 @@ class ImageInLine(admin.TabularInline):
 class EntryInLine(admin.StackedInline):
     model = Entry
     inlines = [ImageInLine]
+    extra = 1
 
 
 class CommentInLine(admin.TabularInline):
     model = Comment
+    extra = 1
 
 
 class PostAdmin(admin.ModelAdmin):
