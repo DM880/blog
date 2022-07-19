@@ -20,7 +20,7 @@ class PostInLine(NestedStackedInline):
         Comment
     ]
 
-        def has_add_permission(self, request, obj):
+    def has_add_permission(self, request, obj):
         return False
 
 
