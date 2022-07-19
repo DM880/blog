@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from src.data.story.models import Post, Entry, Image, Comment
+from src.data.blog.models import Post, Entry, Image, Comment
 
 
 class ImageInLine(admin.TabularInline):

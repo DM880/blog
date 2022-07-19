@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # Data
-    "src.data.story",
+    "src.data.blog",
     # Interfaces
     "src.interfaces.appsite",
     "src.interfaces.djangoadmin",
