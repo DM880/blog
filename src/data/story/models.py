@@ -20,10 +20,11 @@ class Post(models.Model):
 class Entry(models.Model):
     name = models.TextField(max_length=100)
     content = models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post")
 
 
 class Image(models.Model):
-    post = models.ForeignKey(Entry, on_delete=models.CASCADE, related_name="image")
+    entry = models.ForeignKey(Entry, on_delete=models.CASCADE, related_name="image")
     image = models.ImageField(upload_to="post/")
 
 
