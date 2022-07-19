@@ -4,13 +4,9 @@ from nested_inline.admin import NestedModelAdmin, NestedStackedInline
 from src.data.story.models import Category,Post,Entry,Image,Comment
 
 
-class ImageInLine(admin.TabularInline):
-    model = Image
-
-
 class EntryInLine(NestedStackedInline):
     model = Entry
-    inlines = [ImageInLine]
+    inlines = [Image]
 
 
 class CommentInLine(admin.TabularInline):
