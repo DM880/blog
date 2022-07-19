@@ -22,7 +22,7 @@ class PostAdmin(admin.ModelAdmin):
     model = Post
 
     list_display = ('title', 'category', 'date', 'views')
-    search_fields = ['category', 'date', 'views', 'title', 'comment']
+    search_fields = ['category', 'date', 'views', 'title', 'comment__content']
 
     inlines = [EntryInLine, CommentInLine, ImageInLine]
 
