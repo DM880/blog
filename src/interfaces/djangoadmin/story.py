@@ -1,33 +1,32 @@
 from django.contrib import admin
-from nested_inline.admin import NestedModelAdmin, NestedStackedInline
+
 
 from src.data.story.models import Category,Post,Entry,Image,Comment
 
 
-class EntryInLine(NestedStackedInline):
+class EntryInLine(admin.StackedInline):
     model = Entry
-    inlines = [Image]
+    inlines = [
+        Image
+        ]
 
-    def has_add_permission(self, request, obj):
-        return False
+class CommentInLine(admin.TabularInline):
+    model = Comment
 
-class PostInLine(NestedStackedInline):
 
+class PostAdmin(admin.ModelAdmin):
     model = Post
 
     inlines = [
         EntryInLine,
-        Comment
+        CommentInLine
     ]
 
-    def has_add_permission(self, request, obj):
-        return False
 
-
-class CategoryAdmin(NestedModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
 
     inlines = [
-        PostInLine
+        PostAdmin
     ]
 
 
