@@ -21,7 +21,7 @@ class CommentInLine(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     model = Post
 
-    inlines = [EntryInLine, CommentInLine]
+    inlines = [EntryInLine, CommentInLine, ImageInLine]
 
 
 admin.site.register(Post, PostAdmin)
