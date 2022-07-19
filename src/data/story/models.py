@@ -3,21 +3,15 @@ from django.contrib.auth.models import User
 import datetime
 
 
-class Category(models.Model):
-    class Meta:
-        verbose_name_plural = "categories"
-
-    name =  models.CharField(max_length=20)
-
-    def __str__(self):
-        return f"{self.name}"
-
-
 class Post(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
     title = models.CharField(max_length=100)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category')
     date = models.DateTimeField(blank=True, null=True, default=datetime.datetime.now)
     view = models.IntegerField()
+
+
+class Category(models.Model):
+    name =  models.CharField(max_length=20)
 
 
 class Entry(models.Model):
