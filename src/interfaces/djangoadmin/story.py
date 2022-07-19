@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from src.data.story.models import Category,Post,Entry,Image,Comment
+from src.data.story.models import Post,Entry,Image,Comment
 
 
 class EntryInLine(admin.StackedInline):
@@ -23,11 +23,4 @@ class PostAdmin(admin.ModelAdmin):
     ]
 
 
-class CategoryAdmin(admin.ModelAdmin):
-
-    inlines = [
-        PostAdmin
-    ]
-
-
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Post, PostAdmin)
