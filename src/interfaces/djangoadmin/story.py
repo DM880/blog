@@ -14,7 +14,7 @@ class CommentInLine(admin.TabularInline):
 
 
 class PostAdmin(admin.ModelAdmin):
-    model = Post
+    # model = Post
 
     inlines = [
         EntryInLine,
