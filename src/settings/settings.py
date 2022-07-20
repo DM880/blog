@@ -31,7 +31,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://dm880-code50-69689379-9775g9q6w3xgv7-8000.githubpreview.dev/"]
 
 
 # Application definition
