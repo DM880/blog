@@ -14,7 +14,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default=OTH)
     date = models.DateTimeField(blank=True, null=True, default=datetime.datetime.now)
-    views = models.IntegerField()
+    views = models.IntegerField(default=0)
     visible = models.BooleanField(default=True)
 
     def __str__(self):
