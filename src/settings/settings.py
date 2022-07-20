@@ -31,7 +31,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://dm880-code50-69689379-9775g9q6w3xgv7-8000.githubpreview.dev/"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,3 +132,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CSRF_TRUSTED_ORIGINS = ['https://dm880-code50-69689379-9775g9q6w3xgv7-8000.githubpreview.dev','https://*.127.0.0.1']
