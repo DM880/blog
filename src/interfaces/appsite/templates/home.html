@@ -74,6 +74,7 @@
       <h2><span style="color:#05D23A;">Subscribe</span> to <span style="color:#F2CB05;">NEWSLETTER<span></h2>
       <div class="form-div">
         <form name="newsletter" method="POST">
+        {% csrf_token %}
           <input type="text" maxlength="20" name="name" placeholder="Name" required>
           </input><input type="email" name="email" placeholder="Email" required></input>
       <br>
@@ -93,6 +94,7 @@
       <h2 style='color:white;margin-bottom:50px;margin-top:20px;'><span style="color:#05D23A;">Subscribe</span> to <span style="color:#F2CB05;">NEWSLETTER<span></h2>
       <div class="form-div pop-div">
         <form name="pop-newsletter" method="POST">
+        {% csrf_token %}
           <input type="text" maxlength="20" name="name-pop-up" placeholder="Name" required>
           </input><br>
         <input type="email" name="email-pop-up" placeholder="Email" required></input>
