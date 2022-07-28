@@ -1,60 +1,11 @@
 <!DOCTYPE html>
-
 {% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Home Blog</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css'>
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% block title %}Home Blog{% endblock %}
 
-</head>
+  {% block css %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
 
-<body>
-
-<!--   div opacity for pop up -->
-    <div id="div-op-popup">
-
-<!-- Mobile nav -->
-
-           <div class="menu-wrap">
-        <input type="checkbox" class="toggler">
-        <div class="hamburger"><div></div></div>
-        <div class="menu">
-            <div>
-                <div>
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">TRAVEL</a></li>
-                        <li><a href="#">BOOK</a></li>
-                        <li><a href="#">MUSIC</a></li>
-                        <li><a href="#">FIRE</a></li>
-                        <li><a href="#">LIFE</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<!-- Nav -->
-
-  <div class="nav">
-    <div class="nav-socials">
-      <a class="fa-brands fa-facebook-f"></a>
-      <a class="fa-brands fa-instagram"></a>
-    </div>
-    <div class="nav-menu">
-    <a>HOME</a>
-    <a>TRAVEL</a>
-    <a>BOOKS</a>
-    <a>MUSIC</a>
-    <a>FIRE</a>
-    <a>LIFE</a>
-    </div>
-    </div>
-
+{% block content %}
 <!--  Main  -->
   <div class="all-wrap">
 
@@ -131,12 +82,6 @@
         </div>
     </div>
     </div>
-<div class="footer">
-  <div style="display:table-cell;vertical-align: middle;">
-  <h6>© Copyright 2022</h6>
-  </div>
-</div>
-
   </div>
 
 
@@ -162,5 +107,4 @@
 
   <script  src="{% static 'js/home.js' %}"></script>
 
-</body>
-</html>
+{% endblock %}
