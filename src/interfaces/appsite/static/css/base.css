@@ -16,6 +16,11 @@ body{
   height:100%;
 }
 
+.all-wrap{
+  width: 90%;
+  margin: auto;
+}
+
 hr{
     margin-top: 40px;
     border: 0;
@@ -133,6 +138,57 @@ hr{
     font-family: 'Cormorant SC', serif;
     font-size: 35px;
   }
+
+/* Newsletter */
+
+.news-wrap{
+  margin: 40px auto 40px auto;
+  padding: 30px;
+  font-family: 'Montserrat',sans-serif;
+  background-color: #202020;
+}
+
+.news-wrap h2{
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+.form-div{
+  text-align: center;
+}
+
+.form-div input{
+  border: solid 2px #180A0A;
+  height: 40px;
+  font-size: 18px;
+  max-width: 80%;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.form-div input:focus{
+  outline-color: #36AE7C;
+}
+
+.form-div button{
+  margin-top: 10px;
+  height: 45px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #05D23A;
+  border: solid;
+  color: #202020;
+  transition: all 0.3s ease;
+}
+
+.form-div button:hover{
+  background-color: #36AE7C;
+  color: white;
+  border-color: white;
+}
 
   /* Footer */
 

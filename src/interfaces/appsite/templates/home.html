@@ -7,7 +7,6 @@
 
 {% block content %}
 <!--  Main  -->
-  <div class="all-wrap">
 
   <div class="circle-wrap">
     <div class="circle"><h1>DM</h1></div>
@@ -67,24 +66,6 @@
     </div>
 
     <hr>
-
-<!-- Newsletter -->
-
-    <div class="news-wrap">
-      <h2><span style="color:#05D23A;">Subscribe</span> to <span style="color:#F2CB05;">NEWSLETTER<span></h2>
-      <div class="form-div">
-        <form name="newsletter" method="POST">
-        {% csrf_token %}
-          <input type="text" maxlength="20" name="name" placeholder="Name" required>
-          </input><input type="email" name="email" placeholder="Email" required></input>
-      <br>
-      <button type="">Subscribe</button>
-      </form>
-        </div>
-    </div>
-    </div>
-  </div>
-
 
 <!-- Pop Up Newsletter -->
 
