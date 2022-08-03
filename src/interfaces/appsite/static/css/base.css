@@ -52,6 +52,8 @@ hr{
     cursor: pointer;
     margin: 10px;
     transition: all 0.2s ease;
+    text-decoration: none;
+    color: white;
   }
 
   .nav-menu a:hover{

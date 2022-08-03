@@ -31,8 +31,8 @@
             <div>
                 <div>
                     <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">TRAVEL</a></li>
+                        <li><a href="{% url 'home' %}">HOME</a></li>
+                        <li><a href="{% url 'travel' %}">TRAVEL</a></li>
                         <li><a href="#">BOOK</a></li>
                         <li><a href="#">MUSIC</a></li>
                         <li><a href="#">FIRE</a></li>
@@ -51,8 +51,8 @@
       <a class="fa-brands fa-instagram"></a>
     </div>
     <div class="nav-menu">
-    <a>HOME</a>
-    <a>TRAVEL</a>
+    <a href="{% url 'home' %}">HOME</a>
+    <a href="{% url 'travel' %}">TRAVEL</a>
     <a>BOOKS</a>
     <a>MUSIC</a>
     <a>FIRE</a>
