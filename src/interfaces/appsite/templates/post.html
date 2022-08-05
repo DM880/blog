@@ -3,10 +3,10 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
-{% block css %} {% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/home.css' %}"> {% endblock %}
 
 {% block content %}
-
-<h1></h1>
+<img src="/media/{{post.first_image.image}}" style="width:100%">
+<h1>{{post.title}}</h1>
 
 {% endblock %}

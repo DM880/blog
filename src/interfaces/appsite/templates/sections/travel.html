@@ -3,17 +3,25 @@
 
 {% block title %}Travel {% endblock %}
 
-{% block css %}{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
 
 {% block content %}
 
 
 {{ travel_posts.count}}
 
+<div class="row">
+
 {% for post in travel_posts %}
 
-<a href="{% url 'travel_post' post_id=post.id %}">{{post.title}}</a>
+  <div class="column">
+      <a href="{% url 'travel_post' post_id=post.id %}">{{post.title}}</a>
+    <img src="/media/{{post.first_image.image}}" style="width:100%">
+  </div>
+
 
 {% endfor %}
+
+</div>
 
 {% endblock %}

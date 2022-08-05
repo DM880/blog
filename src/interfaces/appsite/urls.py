@@ -11,3 +11,5 @@ urlpatterns = [
     path("travel/", views.travel, name="travel"),
     path("travel/<post_id>/", views.travel_post, name="travel_post"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import sys
 import environ
 
 
@@ -139,3 +141,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://ide-d552d84f01fc444aacb387647fc6cca7-8080.cs50.ws",
     "https://*.127.0.0.1",
 ]
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"

@@ -14,7 +14,7 @@ def home(request):
 
 def travel(request):
 
-    travel_posts = Post.objects.filter(category='TRAVEL').order_by("date")
+    travel_posts = Post.objects.filter(category="TRAVEL").order_by("date")
 
     return render(request, "sections/travel.html", {"travel_posts": travel_posts})
 

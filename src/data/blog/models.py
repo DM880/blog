@@ -20,6 +20,9 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title}"
 
+    def first_image(self):
+        return self.image.first()
+
 
 class Entry(models.Model):
     class Meta:
