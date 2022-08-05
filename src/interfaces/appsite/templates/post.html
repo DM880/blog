@@ -3,16 +3,31 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="{% static 'css/home.css' %}"> {% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/post.css' %}"> {% endblock %}
 
 {% block content %}
+
+<h1 class="post-title">{{ post.title }}</h1>
+
+
+<div class="post-img-wrap">
+<div class="post-img">
 <img src="/media/{{post.first_image.image}}" style="width:100%">
-<h1>{{ post.title }}</h1>
+</div>
+</div>
+
+<hr>
 
 {% for entry in entries %}
 
+<div class="entry-wrap">
+
 <h4>{{ entry.title }}</h4>
 <p>{{ entry.content }}</p>
+
+</div>
+
+<hr>
 
 {% endfor %}
 

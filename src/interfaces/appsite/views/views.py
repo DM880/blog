@@ -12,14 +12,16 @@ def home(request):
     return render(request, "home.html")
 
 
-def travel(request):
+def blog_section(request, section):
 
-    travel_posts = Post.objects.filter(category="TRAVEL").order_by("date")
+    posts_section = Post.objects.filter(category=section).order_by("date")
 
-    return render(request, "sections/travel.html", {"travel_posts": travel_posts})
+    return render(
+        request, "sections.html", {"posts_section": posts_section, "section": section}
+    )
 
 
-def travel_post(request, post_id):
+def section_post(request, section, post_id):
 
     post = Post.objects.get(id=post_id)
     entries = Entry.objects.filter(post=post)

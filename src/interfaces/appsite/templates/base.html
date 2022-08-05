@@ -31,8 +31,8 @@
                 <div>
                     <ul>
                         <li><a href="{% url 'home' %}">HOME</a></li>
-                        <li><a href="{% url 'travel' %}">TRAVEL</a></li>
-                        <li><a href="#">BOOK</a></li>
+                        <li><a href="{% url 'blog_section' section='TRAVEL' %}">TRAVEL</a></li>
+                        <li><a href="{% url 'blog_section' section='BOOK' %}">BOOK</a></li>
                         <li><a href="#">MUSIC</a></li>
                         <li><a href="#">FIRE</a></li>
                         <li><a href="#">LIFE</a></li>
@@ -51,8 +51,8 @@
     </div>
     <div class="nav-menu">
     <a href="{% url 'home' %}">HOME</a>
-    <a href="{% url 'travel' %}">TRAVEL</a>
-    <a>BOOKS</a>
+    <a href="{% url 'blog_section' section='TRAVEL' %}">TRAVEL</a>
+    <a href="{% url 'blog_section' section='BOOK' %}">BOOKS</a>
     <a>MUSIC</a>
     <a>FIRE</a>
     <a>LIFE</a>
