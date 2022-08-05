@@ -7,4 +7,13 @@
 
 {% block content %}
 
+
+{{ travel_posts.count}}
+
+{% for post in travel_posts %}
+
+<a href="{% url 'travel_post' post_id=post.id %}">{{post.title}}</a>
+
+{% endfor %}
+
 {% endblock %}
