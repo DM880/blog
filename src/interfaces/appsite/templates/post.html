@@ -7,6 +7,13 @@
 
 {% block content %}
 <img src="/media/{{post.first_image.image}}" style="width:100%">
-<h1>{{post.title}}</h1>
+<h1>{{ post.title }}</h1>
+
+{% for entry in entries %}
+
+<h4>{{ entry.title }}</h4>
+<p>{{ entry.content }}</p>
+
+{% endfor %}
 
 {% endblock %}
