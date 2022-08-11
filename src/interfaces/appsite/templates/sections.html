@@ -3,7 +3,9 @@
 
 {% block title %}{{ section }}{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="{% static 'css/home.css' %}">{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/sections.css' %}">
+{% endblock %}
 
 {% block content %}
 
@@ -14,9 +16,10 @@
 
 {% for post in posts_section %}
 
-  <div class="column">
-      <a href="{% url 'section_post' section=section post_id=post.id %}">{{post.title}}</a>
-    <img src="/media/{{post.first_image.image}}" style="width:100%">
+  <div class="column img_wrap">
+      <h2 class="title_text">{{post.title}}</h2>
+      <h4 class="img_txt">{{post.title}}</h4>
+    <a href="{% url 'section_post' section=section post_id=post.id %}"><img src="/media/{{post.first_image.image}}" style="width:100%"></a>
   </div>
 
 

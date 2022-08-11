@@ -1,0 +1,29 @@
+.img_txt{
+  position: absolute;
+  color: black;
+  visibility: hidden;
+  opacity: 0;
+  padding: 10px;
+  transition: opacity .2s, visibility .2s;
+  vertical-align: middle;
+  text-align:center;
+}
+
+.img_wrap:hover .img_txt {
+  visibility: visible;
+  opacity: 1 !important;
+  z-index: 99;
+}
+
+.img_wrap{
+    border: solid;
+    border-right: none;
+}
+
+.img_wrap:last-child{
+    border-right: solid;
+}
+
+.title_text{
+    text-align: center;
+}
