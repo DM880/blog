@@ -33,9 +33,9 @@
                         <li><a href="{% url 'home' %}">HOME</a></li>
                         <li><a href="{% url 'blog_section' section='TRAVEL' %}">TRAVEL</a></li>
                         <li><a href="{% url 'blog_section' section='BOOK' %}">BOOK</a></li>
-                        <li><a href="#">MUSIC</a></li>
-                        <li><a href="#">FIRE</a></li>
-                        <li><a href="#">LIFE</a></li>
+                        <li><a href="{% url 'blog_section' section='MUSIC' %}">MUSIC</a></li>
+                        <li><a href="{% url 'blog_section' section='FIRE' %}">FIRE</a></li>
+                        <li><a href="{% url 'blog_section' section='LIFE' %}">LIFE</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,9 +53,9 @@
     <a href="{% url 'home' %}">HOME</a>
     <a href="{% url 'blog_section' section='TRAVEL' %}">TRAVEL</a>
     <a href="{% url 'blog_section' section='BOOK' %}">BOOKS</a>
-    <a>MUSIC</a>
-    <a>FIRE</a>
-    <a>LIFE</a>
+    <a href="{% url 'blog_section' section='MUSIC' %}">MUSIC</a>
+    <a href="{% url 'blog_section' section='FIRE' %}">FIRE</a>
+    <a href="{% url 'blog_section' section='LIFE' %}">LIFE</a>
     </div>
     </div>
 
