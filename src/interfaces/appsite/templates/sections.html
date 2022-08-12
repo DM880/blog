@@ -9,16 +9,17 @@
 
 {% block content %}
 
-
-{{ posts.count}}
-
 <div class="row">
 
 {% for post in posts_section %}
 
   <div class="column img_wrap">
-      <h2 class="title_text">{{post.title}}</h2>
-      <h4 class="img_txt">{{post.title}}</h4>
+      <h2 class="title_text">{{ post.title }}</h2>
+      <div class="img_txt_div">
+      <div class="img_txt">
+      <p>{{ post.description|truncatechars:100 }}</p>
+      </div>
+      </div>
     <a href="{% url 'section_post' section=section post_id=post.id %}"><img src="/media/{{post.first_image.image}}" style="width:100%"></a>
   </div>
 

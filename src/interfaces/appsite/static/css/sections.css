@@ -1,18 +1,32 @@
-.img_txt{
-  position: absolute;
-  color: black;
-  visibility: hidden;
-  opacity: 0;
-  padding: 10px;
-  transition: opacity .2s, visibility .2s;
-  vertical-align: middle;
-  text-align:center;
+.img_txt_div{
+    position: relative;
+    max-width: 100%;
 }
 
-.img_wrap:hover .img_txt {
-  visibility: visible;
-  opacity: 1 !important;
-  z-index: 99;
+.img_txt{
+    position: absolute;
+    color: black;
+    visibility: hidden;
+    opacity: 0;
+    padding: 10px;
+    transition: opacity .2s, visibility .2s;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    font-size: 20px;
+    font-family: 'Montserrat',sans-serif;
+    word-wrap: break-word;
+}
+
+.img_txt p{
+    position:relative;
+}
+
+.img_wrap:hover .img_txt{
+    visibility: visible;
+    opacity: 1 !important;
+    z-index: 99;
 }
 
 .img_wrap{
@@ -26,4 +40,5 @@
 
 .title_text{
     text-align: center;
+    font-family: 'Montserrat',sans-serif;
 }
