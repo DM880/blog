@@ -48,18 +48,23 @@
     <h2>MENU</h2>
 
     <div class="row">
-  <div class="column">
-    <img src="https://i.etsystatic.com/13933039/r/il/dffd7e/1335353874/il_fullxfull.1335353874_4awq.jpg" style="width:100%">
+
+  {% for post in posts %}
+
+    <div class="column img-wrap">
+      <h2 class="title-text">{{ post.title }}</h2>
+      <div class="img-txt-div">
+      <div class="img-txt">
+      <p id="post-description-{{post.id}}" onmouseover='imgOnHover({{post.id}})' onmouseout='imgOnOut({{post.id}})'>{{ post.description|truncatechars:100 }}</p>
+      </div>
+      </div>
+    <a href="{% url 'section_post' section=post.category post_id=post.id %}">
+      <img id="post-img-{{post.id}}" onmouseover='imgOnHover({{post.id}})' onmouseout='imgOnOut({{post.id}})' src="/media/{{post.first_image.image}}" style="width:100%">
+      </a>
   </div>
-  <div class="column">
-    <img src="https://i.etsystatic.com/13933039/r/il/dffd7e/1335353874/il_fullxfull.1335353874_4awq.jpg" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="https://i.etsystatic.com/13933039/r/il/dffd7e/1335353874/il_fullxfull.1335353874_4awq.jpg" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="https://i.etsystatic.com/13933039/r/il/dffd7e/1335353874/il_fullxfull.1335353874_4awq.jpg" style="width:100%">
-  </div>
+
+  {% endfor %}
+
 </div>
 
   </div>

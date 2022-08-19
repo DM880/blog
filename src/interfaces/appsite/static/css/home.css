@@ -95,6 +95,56 @@
   opacity: 0.5;
 }
 
+.img-txt-div{
+    position: relative;
+    max-width: 100%;
+}
+
+.img-txt{
+    position: absolute;
+    color: black;
+    visibility: hidden;
+    opacity: 0;
+    padding: 10px;
+    transition: opacity .2s, visibility .2s;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    font-size: 20px;
+    font-family: 'Montserrat',sans-serif;
+    word-wrap: break-word;
+}
+
+.img-txt p{
+    position:relative;
+}
+
+.img-wrap:hover .img-txt{
+    visibility: visible;
+    opacity: 1;
+    z-index: 99;
+}
+
+.img-wrap{
+    border: solid;
+    border-right: none;
+}
+
+.img-wrap:last-child{
+    border-right: solid;
+}
+
+.title-text{
+    text-align: center;
+    font-family: 'Montserrat',sans-serif;
+}
+
+.img-txt:hover{
+    opacity: 0.5;
+}
+
+
 /* Pop Up Newsletter */
 
 .news-pop-up{

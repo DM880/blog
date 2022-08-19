@@ -9,7 +9,10 @@ from src.data.blog.models import Post, Entry, Image, Comment
 
 
 def home(request):
-    return render(request, "home.html")
+
+    posts = Post.objects.all().order_by("date")[:8]
+
+    return render(request, "home.html", {"posts": posts})
 
 
 def blog_section(request, section):

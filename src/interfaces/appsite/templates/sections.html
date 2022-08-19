@@ -4,7 +4,7 @@
 {% block title %}{{ section }}{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/sections.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,9 @@
       <p id="post-description-{{post.id}}" onmouseover='imgOnHover({{post.id}})' onmouseout='imgOnOut({{post.id}})'>{{ post.description|truncatechars:100 }}</p>
       </div>
       </div>
-    <a href="{% url 'section_post' section=section post_id=post.id %}"><img id="post-img-{{post.id}}" src="/media/{{post.first_image.image}}" style="width:100%"></a>
+    <a href="{% url 'section_post' section=section post_id=post.id %}">
+      <img id="post-img-{{post.id}}" onmouseover='imgOnHover({{post.id}})' onmouseout='imgOnOut({{post.id}})' src="/media/{{post.first_image.image}}" style="width:100%">
+      </a>
   </div>
 
 

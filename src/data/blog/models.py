@@ -9,14 +9,14 @@ CATEGORY_CHOICES = (
     (MUS := "MUSIC", "music"),
     (FIR := "FIRE", "fire"),
     (LIF := "LIFE", "life"),
-    (OTH := "OTHER", 'other')
+    (OTH := "OTHER", "other"),
 )
 
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default=OTH)
-    description =  models.TextField()
+    description = models.TextField()
     date = models.DateTimeField(blank=True, null=True, default=datetime.datetime.now)
     views = models.IntegerField(default=0)
     visible = models.BooleanField(default=True)
