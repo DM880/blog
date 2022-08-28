@@ -55,7 +55,7 @@
       <h2 class="title-text">{{ post.title }}</h2>
       <div class="img-txt-div">
       <div class="img-txt">
-      <p id="post-description-{{post.id}}" onmouseover='imgOnHover({{post.id}})' onmouseout='imgOnOut({{post.id}})'>{{ post.description|truncatechars:100 }}</p>
+      <a onmouseover='imgOnHover({{post.id}})' onmouseout='imgOnOut({{post.id}})' href="{% url 'section_post' section=post.category post_id=post.id %}">{{ post.description|truncatechars:100 }}</a>
       </div>
       </div>
     <a href="{% url 'section_post' section=post.category post_id=post.id %}">

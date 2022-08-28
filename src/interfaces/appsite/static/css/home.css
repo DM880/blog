@@ -91,10 +91,6 @@
   transition: all 0.2s ease;
 }
 
-.column img:hover{
-  opacity: 0.5;
-}
-
 .img-txt-div{
     position: relative;
     max-width: 100%;
@@ -104,7 +100,7 @@
     position: absolute;
     color: black;
     visibility: hidden;
-    opacity: 0;
+    height: auto;
     padding: 10px;
     transition: opacity .2s, visibility .2s;
     vertical-align: middle;
@@ -116,8 +112,9 @@
     word-wrap: break-word;
 }
 
-.img-txt p{
-    position:relative;
+.img-txt a{
+    color: black;
+    text-decoration: none;
 }
 
 .img-wrap:hover .img-txt{
@@ -139,11 +136,6 @@
     text-align: center;
     font-family: 'Montserrat',sans-serif;
 }
-
-.img-txt:hover{
-    opacity: 0.5;
-}
-
 
 /* Pop Up Newsletter */
 
