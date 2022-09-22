@@ -36,3 +36,18 @@ def section_post(request, section, post_id):
         "post.html",
         {"post": post, "entries": entries, "images": images, "comments": comments},
     )
+
+
+def create_comment(request, section, post_id):
+
+    post = Post.objects.get(id=post_id)
+    section = post.category
+
+    if request.method == "POST":
+
+        comment_post = request.POST.get('comment-post')
+
+        Comment.objects.create(post=post, user=request.user, content=comment_post)
+
+
+    return redirect(reverse('section_post', args=(section,post_id)))

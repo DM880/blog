@@ -31,4 +31,31 @@
 
 {% endfor %}
 
+<!--Comments-->
+
+      <div class="comment-div">
+        <div class="comment-title">
+        <h2>Comments</h2>
+        </div>
+        <form name="form" method="post" action="{% url 'create_comment' section=post.category post_id=post.id %}">
+            {% csrf_token %}
+        <div class="comment-input">
+        <textarea name="comment-post" maxlength="300"></textarea>
+          <button type="submit">Submit</button>
+          </form>
+        </div>
+        </div>
+        <div class="comment-wrap">
+            {% for comment in comments %}
+        <div class="comment-posted">
+          <h5 class="username">{{ comment.user }}</h5>
+          <div class="user-comment">
+            <p class="comment">{{ comment.content }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+<!--/////////////-->
+
 {% endblock %}
