@@ -8,6 +8,33 @@ from django.contrib.auth.decorators import login_required
 from src.data.blog.models import Post, Entry, Image, Comment
 
 
+# def sign_in(request):
+
+#     if request.user.is_authenticated:
+#         return redirect("home")
+
+#     if request.method == "POST":
+
+#         email = request.POST.get("email")
+#         password = request.POST.get("password")
+#         user = authenticate(email=email, password=password)
+
+#         if user:
+#             if user.is_active:
+#                 login(request, user)
+#                 return redirect("home")
+#         else:
+#             return render(request, "home", {"error": True})
+#     else:
+#         return render(request, "user/sign_in.html")
+
+
+@login_required
+def sign_out(request):
+    logout(request)
+    return redirect("home")
+
+
 def home(request):
 
     posts = Post.objects.all().order_by("date")[:8]
@@ -38,6 +65,7 @@ def section_post(request, section, post_id):
     )
 
 
+@login_required
 def create_comment(request, section, post_id):
 
     post = Post.objects.get(id=post_id)
@@ -45,9 +73,8 @@ def create_comment(request, section, post_id):
 
     if request.method == "POST":
 
-        comment_post = request.POST.get('comment-post')
+        comment_post = request.POST.get("comment-post")
 
         Comment.objects.create(post=post, user=request.user, content=comment_post)
 
-
-    return redirect(reverse('section_post', args=(section,post_id)))
+    return redirect(reverse("section_post", args=(section, post_id)))

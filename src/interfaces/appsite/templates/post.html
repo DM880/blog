@@ -40,7 +40,7 @@
         <form name="form" method="post" action="{% url 'create_comment' section=post.category post_id=post.id %}">
             {% csrf_token %}
         <div class="comment-input">
-        <textarea name="comment-post" maxlength="300"></textarea>
+        <textarea name="comment-post" maxlength="300" required="True"></textarea>
           <button type="submit">Submit</button>
           </form>
         </div>

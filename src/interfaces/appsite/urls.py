@@ -10,7 +10,11 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("<section>/", views.blog_section, name="blog_section"),
     path("<section>/<post_id>/", views.section_post, name="section_post"),
-    path('<section>/<post_id>/create_comment/', views.create_comment, name="create_comment"),
+    path(
+        "<section>/<post_id>/create_comment/",
+        views.create_comment,
+        name="create_comment",
+    ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
