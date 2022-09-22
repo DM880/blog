@@ -86,9 +86,12 @@
 }
 
 .comment-posted{
-  width: 300px;
+  min-width: 200px;
+  max-width: 450px;
+  width: auto;
   margin: auto;
   cursor: default;
+  margin-bottom: 25px;
 }
 
 .user-comment{
@@ -105,4 +108,11 @@
 
 .comment{
   font-family: 'Montserrat',sans-serif;
+}
+
+
+@media screen and (max-width:450px){
+
+
+
 }
