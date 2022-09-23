@@ -2,37 +2,11 @@ from django.conf import settings
 from django.shortcuts import render, redirect, reverse
 from django.views import generic as generic_views
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 
 from src.data.blog.models import Post, Entry, Image, Comment
-
-
-# def sign_in(request):
-
-#     if request.user.is_authenticated:
-#         return redirect("home")
-
-#     if request.method == "POST":
-
-#         email = request.POST.get("email")
-#         password = request.POST.get("password")
-#         user = authenticate(email=email, password=password)
-
-#         if user:
-#             if user.is_active:
-#                 login(request, user)
-#                 return redirect("home")
-#         else:
-#             return render(request, "home", {"error": True})
-#     else:
-#         return render(request, "user/sign_in.html")
-
-
-@login_required
-def sign_out(request):
-    logout(request)
-    return redirect("home")
 
 
 def home(request):
@@ -41,6 +15,67 @@ def home(request):
 
     return render(request, "home.html", {"posts": posts})
 
+
+# Sign
+
+def sign(request):
+
+    return render(request, 'sign/sign.html')
+
+
+def sign_in(request):
+
+    if request.user.is_authenticated:
+        return redirect("home")
+
+    if request.method == "POST":
+
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+        user = authenticate(email=email, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return redirect("home")
+        else:
+            return render(request, "sign/sign.html", {"error": True})
+    else:
+        return render(request, "sign/sign.html")
+
+
+def sign_up(request):
+
+    if request.method == "POST":
+
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        if User.objects.filter(email=email).exists():
+
+            return render(request, "sign/sign.html", {"email_exist":True})
+
+        else:
+            data_user = {
+                "username": email,
+                "email": email,
+                "password": password,
+            }
+
+            User.objects.create_user(**data_user)
+
+            return redirect("home")
+
+    return render(request, "sign/sign.html")
+
+
+@login_required
+def sign_out(request):
+    logout(request)
+    return redirect("home")
+
+
+# Blog Sections
 
 def blog_section(request, section):
 
@@ -64,6 +99,8 @@ def section_post(request, section, post_id):
         {"post": post, "entries": entries, "images": images, "comments": comments},
     )
 
+
+# Comments
 
 @login_required
 def create_comment(request, section, post_id):

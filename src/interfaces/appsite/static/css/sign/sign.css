@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+body{
+  background-color: #2C3333;
+}
+
+.sign-div-wrap{
+  text-align: center;
+  width:auto;
+  margin:10px auto;
+  font-family: 'Montserrat',sans-serif;
+
+}
+
+input:first-child{
+  margin-top: 20px;
+}
+
+input{
+  height: 30px;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 350px;
+  border: solid 1px #180A0A;
+  font-size: 18px;
+  padding: 2px;
+}
+
+button{
+  margin-top: 10px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border: solid 1.5px;
+  font-family: 'Montserrat',sans-serif;
+}
+
+/* SignIn */
+
+.sign-in{
+  width: 45%;
+  max-width:400px;
+  text-align: center;
+  margin: 200px auto;
+  border: solid 2px #05D23A;
+  padding-top: 35px;
+  padding-bottom: 25px;
+  display:inline-block;
+}
+
+.sign-in input:focus{
+  outline-color: #36AE7C;
+}
+
+.rst-pw{
+  color: #5CB8E4;
+  text-decoration:none;
+  transition: all ease 0.3s;
+
+}
+
+.rst-pw:hover{
+  color: #E94560;
+}
+
+.sign-in-btn{
+  margin-top: 20px;
+  background-color: #05D23A;
+  color: #202020;
+}
+
+.sign-in-btn:hover{
+  background-color: #2C3333;
+  color: #36AE7C;
+  border-color: #36AE7C;
+}
+
+/* SignUp */
+
+.sign-up{
+  width: 45%;
+  max-width:400px;
+  text-align: center;
+  margin: 200px auto;
+  border: solid 2px #E94560;
+  padding-top: 64.3px;
+  padding-bottom: 25px;
+  display:inline-block;
+}
+
+.sign-up input:focus{
+  outline-color: #E94560;
+}
+
+.sign-up-btn{
+  color:#202020;
+  background-color:#E94560;
+}
+
+.sign-up-btn:hover{
+  background-color: #2C3333;
+  color: #E94560;
+  border-color: #E94560;
+}
+
+/* Phone */
+
+@media screen and (max-width:480px) {
+  .sign-div-wrap{
+    position: relative;
+    margin-top: 50px;
+  }
+
+  .sign-in, .sign-up{
+    width: 100%;
+    margin:auto;
+    margin-bottom: 50px;
+  }
+}
