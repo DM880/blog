@@ -9,11 +9,15 @@
 
     <title>Sign</title>
 
+     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'>
+
 <link rel="stylesheet" href="{% static 'css/sign/sign.css' %}">
 
 </head>
 
 <body>
+
+    <a href="{{request.META.HTTP_REFERER}}"><i title="Back" class="fa-regular fa-circle-left"></i></a>
 
 <div class="sign-div-wrap">
 

@@ -4,6 +4,21 @@ body{
   background-color: #2C3333;
 }
 
+/*Back Icon*/
+
+.fa-circle-left{
+  font-size: 40px;
+  margin: 5px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.fa-circle-left:hover{
+  color: #E94560;
+}
+
+/*///////////*/
+
 .sign-div-wrap{
   text-align: center;
   width:auto;
