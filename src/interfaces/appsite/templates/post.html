@@ -40,7 +40,9 @@
             {% csrf_token %}
         <div class="comment-input">
         <textarea name="comment-post" maxlength="300" required="True"></textarea>
-          <button type="submit">Submit</button>
+          {% if signed_in %}<button type="submit">Submit</button>
+          {% else %}<button type="button">SignIn to comment</button>
+          {% endif %}
           </form>
         </div>
         </div>

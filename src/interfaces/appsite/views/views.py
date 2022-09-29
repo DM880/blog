@@ -30,9 +30,9 @@ def sign_in(request):
 
     if request.method == "POST":
 
-        email = request.POST.get("email")
-        password = request.POST.get("password")
-        user = authenticate(email=email, password=password)
+        username = request.POST.get("sign_in_username")
+        password = request.POST.get("sign_in_password")
+        user = authenticate(username=username, password=password)
 
         if user:
             if user.is_active:
@@ -48,16 +48,21 @@ def sign_up(request):
 
     if request.method == "POST":
 
-        email = request.POST.get("email")
-        password = request.POST.get("password")
+        username = request.POST.get('sign_up_username')
+        email = request.POST.get("sign_up_email")
+        password = request.POST.get("sign_up_password")
 
         if User.objects.filter(email=email).exists():
 
             return render(request, "sign/sign.html", {"email_exist":True})
 
+        elif User.objects.filter(username=username).exists():
+
+            return render(request, "sign/sign.html", {"username_exist":True})
+
         else:
             data_user = {
-                "username": email,
+                "username": username,
                 "email": email,
                 "password": password,
             }
@@ -93,10 +98,15 @@ def section_post(request, section, post_id):
     images = Image.objects.filter(post=post)
     comments = Comment.objects.filter(post=post)
 
+    if request.user.is_authenticated:
+        signed_in = True
+    else:
+        signed_in = False
+
     return render(
         request,
         "post.html",
-        {"post": post, "entries": entries, "images": images, "comments": comments},
+        {"post": post, "entries": entries, "images": images, "comments": comments, 'signed_in':signed_in},
     )
 
 

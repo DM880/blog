@@ -20,11 +20,12 @@
         <!--SignIn-->
 
   <div class="sign-in">
-    <form method="post" action="{% url 'sign_in' %}">
+      {% if error %}<h4 style="color:red;margin-top:-20px;">Login details don't match</h4>{% endif %}
+    <form method="post" action="{% url 'sign_in' %}" enctype="multipart/form-data">
        {% csrf_token %}
-    <input placeholder="Email" type="email" name="email" required="true"></input>
+    <input placeholder="Email" type="text" name="sign_in_username" required></input>
   <br>
-  <input placeholder="Password" type="password" name="password" required="true"></input>
+  <input placeholder="Password" type="password" name="sign_in_password" required></input>
 <br>
   <a href="" class="rst-pw">Reset Password</a>
   <br>
@@ -35,11 +36,15 @@
   <!--SignUp-->
 
 <div class="sign-up">
-    <form method="post" action="{% url 'sign_up' %}">
+    {% if username_exist %}<h4 style="color:red;margin-top:-40px;">Username already exsist</h4>{% endif %}
+    {% if email_exist %}<h4 style="color:red;margin-top:-40px;">Email already in use</h4>{% endif %}
+    <form method="post" action="{% url 'sign_up' %}" enctype="multipart/form-data">
        {% csrf_token %}
-  <input placeholder="Email" type="email" name="email" required="true"></input>
+  <input placeholder="Username" type="text" name="sign_up_username" required></input>
 <br>
-<input placeholder="Password" type="password" name="password" required="true"></input>
+<input placeholder="Email" type="email" name="sign_up_email" required></input>
+<br>
+<input placeholder="Password" type="password" name="sign_up_password" required></input>
 <br>
 <button class="sign-up-btn" type="submit">Sign Up</button>
 </form>

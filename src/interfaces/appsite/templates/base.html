@@ -46,7 +46,9 @@
 
   <div class="nav">
     <div class="nav-socials">
-      <a title="Login" class="fa-regular fa-user"></a>
+      {% if user.is_authenticated %}<a title="Logout" class="fa-regular fa-user" href="{% url 'sign_out' %}"></a>
+      {% else %}<a title="Login" class="fa-regular fa-user" href="{% url 'sign' %}"></a>
+      {% endif %}
       <a class="fa-brands fa-facebook-f"></a>
       <a class="fa-brands fa-instagram"></a>
     </div>
@@ -67,12 +69,12 @@
      <div class="news-wrap">
       <h2><span style="color:#05D23A;">Subscribe</span> to <span style="color:#F2CB05;">NEWSLETTER<span></h2>
       <div class="form-div">
-        <form name="newsletter" method="POST">
+        <form name="newsletter" method="POST" action="">
         {% csrf_token %}
           <input type="text" maxlength="20" name="name" placeholder="Name" required>
           </input><input type="email" name="email" placeholder="Email" required></input>
       <br>
-      <button type="">Subscribe</button>
+      <button type="submit">Subscribe</button>
       </form>
         </div>
     </div>
