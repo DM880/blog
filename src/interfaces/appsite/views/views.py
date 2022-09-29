@@ -18,9 +18,10 @@ def home(request):
 
 # Sign
 
+
 def sign(request):
 
-    return render(request, 'sign/sign.html')
+    return render(request, "sign/sign.html")
 
 
 def sign_in(request):
@@ -48,17 +49,17 @@ def sign_up(request):
 
     if request.method == "POST":
 
-        username = request.POST.get('sign_up_username')
+        username = request.POST.get("sign_up_username")
         email = request.POST.get("sign_up_email")
         password = request.POST.get("sign_up_password")
 
         if User.objects.filter(email=email).exists():
 
-            return render(request, "sign/sign.html", {"email_exist":True})
+            return render(request, "sign/sign.html", {"email_exist": True})
 
         elif User.objects.filter(username=username).exists():
 
-            return render(request, "sign/sign.html", {"username_exist":True})
+            return render(request, "sign/sign.html", {"username_exist": True})
 
         else:
             data_user = {
@@ -81,6 +82,7 @@ def sign_out(request):
 
 
 # Blog Sections
+
 
 def blog_section(request, section):
 
@@ -106,11 +108,18 @@ def section_post(request, section, post_id):
     return render(
         request,
         "post.html",
-        {"post": post, "entries": entries, "images": images, "comments": comments, 'signed_in':signed_in},
+        {
+            "post": post,
+            "entries": entries,
+            "images": images,
+            "comments": comments,
+            "signed_in": signed_in,
+        },
     )
 
 
 # Comments
+
 
 @login_required
 def create_comment(request, section, post_id):
