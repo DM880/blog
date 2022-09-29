@@ -91,7 +91,7 @@
 
 
 <!-- Pop Up Newsletter(for home.html only) -->
-
+{% if user.is_authenticated != True %}
   <div id="pop-up-div" style="display:none;">
 <div class="news-pop-up">
    <a id="x-close" onclick="closeDiv();">X</a>
@@ -108,6 +108,7 @@
         </div>
     </div>
     </div>
+    {% endif %}
 <!-- ////////// -->
 
 </body>

@@ -23,7 +23,7 @@
       {% if error %}<h4 style="color:red;margin-top:-20px;">Login details don't match</h4>{% endif %}
     <form method="post" action="{% url 'sign_in' %}" enctype="multipart/form-data">
        {% csrf_token %}
-    <input placeholder="Email" type="text" name="sign_in_username" required></input>
+    <input placeholder="Email" type="email" name="sign_in_username" required></input>
   <br>
   <input placeholder="Password" type="password" name="sign_in_password" required></input>
 <br>

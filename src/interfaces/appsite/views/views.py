@@ -63,7 +63,8 @@ def sign_up(request):
 
         else:
             data_user = {
-                "username": username,
+                "username": email,
+                "first_name": username,
                 "email": email,
                 "password": password,
             }

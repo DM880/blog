@@ -49,7 +49,7 @@
         <div class="comment-wrap">
             {% for comment in comments %}
         <div class="comment-posted">
-          <h5 class="username">{{ comment.user }}</h5>
+          <h5 class="username">{{ comment.user.first_name }}</h5>
           <div class="user-comment">
             <p class="comment">{{ comment.content }}</p>
           </div>
