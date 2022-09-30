@@ -71,8 +71,8 @@
       <div class="form-div">
         <form name="newsletter" method="POST" action="">
         {% csrf_token %}
-          <input type="text" maxlength="20" name="name" placeholder="Name" required>
-          </input><input type="email" name="email" placeholder="Email" required></input>
+          <input type="text" maxlength="20" name="name" placeholder="Name" required></input>
+          <input type="email" name="email" placeholder="Email" required></input>
       <br>
       <button type="submit">Subscribe</button>
       </form>
@@ -99,8 +99,8 @@
       <div class="form-div pop-div">
         <form name="pop-newsletter" method="POST">
         {% csrf_token %}
-          <input type="text" maxlength="20" name="name-pop-up" placeholder="Name" required>
-          </input><br>
+          <input type="text" maxlength="20" name="name-pop-up" placeholder="Name" required></input>
+          <br>
         <input type="email" name="email-pop-up" placeholder="Email" required></input>
       <br>
       <button type="">Subscribe</button>

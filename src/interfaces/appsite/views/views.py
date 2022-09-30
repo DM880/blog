@@ -5,6 +5,19 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
+from django.core.mail import send_mail, BadHeaderError
+from django.contrib.auth.forms import PasswordResetForm
+from django.template.loader import render_to_string
+from django.db.models.query_utils import Q
+from django.utils.http import urlsafe_base64_encode
+from django.contrib import messages
+from django.utils.encoding import force_bytes
+from django.contrib.auth.tokens import default_token_generator
+
+import sendgrid
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import *
+
 
 from src.data.blog.models import Post, Entry, Image, Comment
 
@@ -80,6 +93,54 @@ def sign_up(request):
 def sign_out(request):
     logout(request)
     return redirect("home")
+
+
+def password_reset(request):
+    if request.method == "POST":
+        password_reset_form = PasswordResetForm(request.POST)
+        if password_reset_form.is_valid():
+            data = password_reset_form.cleaned_data["email"]
+            associated_users = User.objects.filter(Q(email=data))
+            if associated_users.exists():
+                for user in associated_users:
+                    subject = "Password Reset Requested"
+                    email_template_name = "password_reset/password_reset_email.txt"
+                    c = {
+                        "email": user.email,
+                        "domain": request.META["HTTP_HOST"],
+                        "site_name": "Blog",
+                        "uid": urlsafe_base64_encode(force_bytes(user.pk)),
+                        "token": default_token_generator.make_token(user),
+                        "protocol": "http",
+                    }
+                    email = render_to_string(email_template_name, c)
+                    message = Mail(
+                        from_email=settings.EMAIL_HOST,
+                        to_emails=user.email,
+                        subject=subject,
+                        html_content=email,
+                    )
+
+                    try:
+                        sg = SendGridAPIClient(os.environ.get("SENDGRID_API_KEY"))
+                        response = sg.send(message)
+                        print(response)
+                        print(response.status_code)
+                    except Exception as e:
+                        print(e)
+
+                    messages.success(
+                        request,
+                        "A message with reset password instructions has been sent to your inbox.",
+                    )
+                    return redirect("sign")
+            messages.error(request, "An invalid email has been entered.")
+    password_reset_form = PasswordResetForm()
+    return render(
+        request,
+        "password_reset/password_reset.html",
+        {"password_reset_form": password_reset_form},
+    )
 
 
 # Blog Sections

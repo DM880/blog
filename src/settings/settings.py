@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
     # Data
     "src.data.blog",
     # Interfaces
@@ -145,3 +146,11 @@ CSRF_TRUSTED_ORIGINS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+
+
+EMAIL_BACKEND = (
+    "django.core.mail.backends.console.EmailBackend"  # During development only
+)
+EMAIL_FILE_PATH = str(BASE_DIR.joinpath("sent_emails"))
+
+EMAIL_HOST = env("EMAIL_HOST")

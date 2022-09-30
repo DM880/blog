@@ -41,7 +41,7 @@
         <div class="comment-input">
         <textarea name="comment-post" maxlength="300" required="True"></textarea>
           {% if signed_in %}<button type="submit">Submit</button>
-          {% else %}<button type="button">SignIn to comment</button>
+          {% else %}<a href="{% url 'sign' %}"><button type="button">Sign In to comment</button></a>
           {% endif %}
           </form>
         </div>
