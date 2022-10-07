@@ -2,6 +2,7 @@
 
 body{
   background-color: #2C3333;
+  font-family: 'Montserrat',sans-serif;
 }
 
 /*Back Icon*/
@@ -19,12 +20,15 @@ body{
 
 /*///////////*/
 
+.error-style{
+  color:red;
+  margin-top:-10px;
+}
+
 .sign-div-wrap{
   text-align: center;
   width:auto;
   margin:10px auto;
-  font-family: 'Montserrat',sans-serif;
-
 }
 
 input:first-child{
@@ -56,6 +60,18 @@ button{
 
 /* SignIn */
 
+.sign-in-style{
+  color: #2C3333;
+  margin-top:-20px;
+  text-shadow:
+  -1px -1px 0 #05D23A,
+  0px -1px 0 #05D23A,
+  1px -1px 0 #05D23A,
+  -1px 1px 0 #05D23A,
+  0px 1px 0 #05D23A,
+  1px 1px 0 #05D23A;
+}
+
 .sign-in{
   width: 45%;
   max-width:400px;
@@ -80,6 +96,7 @@ button{
 
 .rst-pw:hover{
   color: #E94560;
+  text-decoration: underline;
 }
 
 .sign-in-btn{
@@ -95,6 +112,19 @@ button{
 }
 
 /* SignUp */
+
+.sign-up-style{
+  margin-top:-20px;
+  margin-bottom:30px;
+  color: #2C3333;
+  text-shadow:
+  -1px -1px 0 #E94560,
+  0px -1px 0 #E94560,
+  1px -1px 0 #E94560,
+  -1px 1px 0 #E94560,
+  0px 1px 0 #E94560,
+  1px 1px 0 #E94560;
+}
 
 .sign-up{
   width: 45%;
@@ -120,6 +150,17 @@ button{
   background-color: #2C3333;
   color: #E94560;
   border-color: #E94560;
+}
+
+
+/*Message-tags*/
+
+.message-success{
+  color: #05D23A;
+}
+
+.message-error{
+  color: #E94560;
 }
 
 /* Phone */

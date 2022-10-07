@@ -19,12 +19,19 @@
 
     <a href="{{request.META.HTTP_REFERER}}"><i title="Back" class="fa-regular fa-circle-left"></i></a>
 
+{% if messages %}
+{% for message in messages %}
+<h3 class="message-{{message.tags}}" style="text-align:center;margin-top:-10px;">{{message}}</h3>
+{% endfor %}
+{% endif %}
+
 <div class="sign-div-wrap">
 
         <!--SignIn-->
 
   <div class="sign-in">
-      {% if error %}<h4 style="color:red;margin-top:-20px;">Login details don't match</h4>{% endif %}
+      <h1 class="sign-in-style">Sign In</h1>
+      {% if error %}<h4 class="error-style">Login details don't match</h4>{% endif %}
     <form method="post" action="{% url 'sign_in' %}" enctype="multipart/form-data">
        {% csrf_token %}
     <input placeholder="Email" type="email" name="sign_in_username" required></input>
@@ -40,8 +47,9 @@
   <!--SignUp-->
 
 <div class="sign-up">
-    {% if username_exist %}<h4 style="color:red;margin-top:-40px;">Username already exsist</h4>{% endif %}
-    {% if email_exist %}<h4 style="color:red;margin-top:-40px;">Email already in use</h4>{% endif %}
+    <h1 class="sign-up-style">Sign Up</h1>
+    {% if username_exist %}<h4 class="error-style">Username already exsist</h4>{% endif %}
+    {% if email_exist %}<h4 class="error-style">Email already in use</h4>{% endif %}
     <form method="post" action="{% url 'sign_up' %}" enctype="multipart/form-data">
        {% csrf_token %}
   <input placeholder="Username" type="text" name="sign_up_username" required></input>

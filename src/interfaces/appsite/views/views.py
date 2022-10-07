@@ -18,6 +18,8 @@ import sendgrid
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import *
 
+import os
+
 
 from src.data.blog.models import Post, Entry, Image, Comment
 
@@ -134,7 +136,10 @@ def password_reset(request):
                         "A message with reset password instructions has been sent to your inbox.",
                     )
                     return redirect("sign")
-            messages.error(request, "An invalid email has been entered.")
+            else:
+                messages.error(request, "An invalid email has been entered.")
+                return redirect("sign")
+
     password_reset_form = PasswordResetForm()
     return render(
         request,
