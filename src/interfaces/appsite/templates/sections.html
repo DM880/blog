@@ -34,18 +34,7 @@
 
 </div>
 
-     <div class="news-wrap">
-      <h2><span style="color:#05D23A;">Subscribe</span> to <span style="color:#F2CB05;">NEWSLETTER<span></h2>
-      <div class="form-div">
-        <form name="newsletter" method="POST" action="">
-        {% csrf_token %}
-          <input type="text" maxlength="20" name="name" placeholder="Name" required></input>
-          <input type="email" name="email" placeholder="Email" required></input>
-      <br>
-      <button type="submit">Subscribe</button>
-      </form>
-        </div>
-    </div>
+{% include 'newsletter.html' %}
 
 <script  src="{% static 'js/sections.js' %}"></script>
 

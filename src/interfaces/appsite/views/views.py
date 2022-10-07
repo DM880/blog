@@ -72,7 +72,7 @@ def sign_up(request):
 
             return render(request, "sign/sign.html", {"email_exist": True})
 
-        elif User.objects.filter(username=username).exists():
+        elif User.objects.filter(first_name=first_name).exists():
 
             return render(request, "sign/sign.html", {"username_exist": True})
 
