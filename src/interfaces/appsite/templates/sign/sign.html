@@ -17,7 +17,7 @@
 
 <body>
 
-    <a href="{{request.META.HTTP_REFERER}}"><i title="Back" class="fa-regular fa-circle-left"></i></a>
+    <a {% if 'sign' in request.META.HTTP_REFERER %} href="{% url 'home' %}" {% else %} href="{{request.META.HTTP_REFERER}}" {% endif %}><i title="Back" class="fa-regular fa-circle-left"></i></a>
 
 {% if messages %}
 {% for message in messages %}
