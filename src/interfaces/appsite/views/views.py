@@ -22,6 +22,7 @@ import os
 
 
 from src.data.blog.models import Post, Entry, Image, Comment
+from src.data.newsletter.models import Newsletter
 
 
 def home(request):
@@ -95,6 +96,44 @@ def sign_up(request):
 def sign_out(request):
     logout(request)
     return redirect("home")
+
+
+# Newsletter
+
+
+def newsletter_sign_up(request):
+
+    if request.method == "POST":
+
+        name = request.POST.get("name-newsletter")
+        email = request.POST.get("email-newsletter")
+
+        if Newsletter.objects.filter(email=email).exists():
+            email_exist = "Email is already subscribed"
+
+        else:
+            Newsletter.objects.create(name=name, email=email)
+
+        return redirect(request.META.get("HTTP_REFERER"))
+
+
+def newsletter_sign_up_pop(request):
+
+    if request.method == "POST":
+
+        name = request.POST.get("name-pop-up")
+        email = request.POST.get("email-pop-up")
+
+        if Newsletter.objects.filter(email=email).exists():
+            email_exist = "Email is already subscribed"
+
+        else:
+            Newsletter.objects.create(name=name, email=email)
+
+        return redirect(request.META.get("HTTP_REFERER"))
+
+
+# Password Reset
 
 
 def password_reset(request):

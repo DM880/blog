@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     # Data
     "src.data.blog",
+    "src.data.newsletter",
     # Interfaces
     "src.interfaces.appsite",
     "src.interfaces.djangoadmin",

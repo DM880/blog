@@ -13,6 +13,13 @@ urlpatterns = [
     path("sign/sign_in/", views.sign_in, name="sign_in"),
     path("sign/sign_up/", views.sign_up, name="sign_up"),
     path("sign/sign_out/", views.sign_out, name="sign_out"),
+    # Newsletter
+    path("newsletter_sign_up/", views.newsletter_sign_up, name="newsletter_sign_up"),
+    path(
+        "newsletter_sign_up_pop/",
+        views.newsletter_sign_up_pop,
+        name="newsletter_sign_up_pop",
+    ),
     # Password Reset
     path("password_reset/", views.password_reset, name="password_reset"),
     path(

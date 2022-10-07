@@ -46,7 +46,7 @@
 
   <div class="nav">
     <div class="nav-socials">
-      {% if user.is_authenticated %}<a title="Logout" class="fa-regular fa-user" href="{% url 'sign_out' %}"></a>
+      {% if request.user.is_authenticated %}<a title="Logout" class="fa-regular fa-user" href="{% url 'sign_out' %}"></a>
       {% else %}<a title="Login" class="fa-regular fa-user" href="{% url 'sign' %}"></a>
       {% endif %}
       <a class="fa-brands fa-facebook-f"></a>
@@ -85,13 +85,13 @@
    <a id="x-close" onclick="closeDiv();">X</a>
       <h2 style='color:white;margin-bottom:50px;margin-top:20px;'><span style="color:#05D23A;">Subscribe</span> to <span style="color:#F2CB05;">NEWSLETTER<span></h2>
       <div class="form-div pop-div">
-        <form name="pop-newsletter" method="POST">
+        <form name="pop-newsletter" method="POST" action="{% url 'newsletter_sign_up_pop' %}">
         {% csrf_token %}
           <input type="text" maxlength="20" name="name-pop-up" placeholder="Name" required></input>
           <br>
         <input type="email" name="email-pop-up" placeholder="Email" required></input>
       <br>
-      <button type="">Subscribe</button>
+      <button type="submit">Subscribe</button>
       </form>
         </div>
     </div>
