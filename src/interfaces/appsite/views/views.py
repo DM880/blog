@@ -97,20 +97,48 @@ def sign_out(request):
     logout(request)
     return redirect("home")
 
-# Search Input
 
-def search_input(request):
+# Search and Sort
 
-    search_input = request.GET.get('search-input')
 
-    if search_input is not None:
+def search_and_sort(request):
 
-        searched_posts = Post.objects.filter(title__contains=search_input)
+    section = request.GET.get("section")
+    search_input = request.GET.get("search-input")
+    sorting_element = request.GET.get("sorting_by")
+
+    if sorting_element is None:
+        sorting_element = "-date"
+
+    if section is not None and search_input is not None:
+        searched_posts = Post.objects.filter(
+            category=section, title__contains=search_input
+        ).order_by(sorting_element)
+
+    elif section is None and search_input is not None:
+        searched_posts = Post.objects.filter(title__contains=search_input).order_by(
+            sorting_element
+        )
+
+    elif section is not None and search_input is None:
+        searched_posts = Post.objects.filter(category=section).order_by(sorting_element)
 
     else:
+        searched_posts = Post.objects.all().order_by(sorting_element)
+
+    if searched_posts is None:
+
         searched_posts = []
 
-    return render(request, 'searched_result.html', {'searched_posts':searched_posts})
+    return render(
+        request,
+        "searched_result.html",
+        {
+            "searched_posts": searched_posts,
+            "section": section,
+            "search_input": search_input,
+        },
+    )
 
 
 # Newsletter
@@ -207,7 +235,7 @@ def password_reset(request):
 
 def blog_section(request, section):
 
-    posts_section = Post.objects.filter(category=section).order_by("date")
+    posts_section = Post.objects.filter(category=section).order_by("-date")
 
     return render(
         request, "sections.html", {"posts_section": posts_section, "section": section}

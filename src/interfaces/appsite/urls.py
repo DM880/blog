@@ -8,8 +8,10 @@ from .views import views
 
 urlpatterns = [
     path("", views.home, name="home"),
-    # Search Input
-    path("search_input/", views.search_input, name="search_input"),
+    # Search and Sort
+    path("search_and_sort/", views.search_and_sort, name="search_and_sort"),
+    # # Sort
+    # path("sort_posts/", views.sort_posts, name="sort_posts"),
     # Sign
     path("sign/", views.sign, name="sign"),
     path("sign/sign_in/", views.sign_in, name="sign_in"),
