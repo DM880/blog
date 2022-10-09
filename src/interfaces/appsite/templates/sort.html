@@ -1,14 +1,14 @@
 <form method="GET" action="{% url 'search_and_sort' %}">
   {% if search_input %}<input type="hidden" name="search-input" value='{{ search_input }}'>{% endif %}
   {% if section %}<input type="hidden" name="category" value='{{ section }}'>{% endif %}
-  <div style="margin-left:20px;margin-top:100px;z-index:98;">
+  <div style="margin-left:20px;margin-top:100px;z-index:98;font-family:'Montserrat',sans-serif;">
     <p style="margin-bottom:-2px;">Sort by:</p>
   <select id="sort" name="sorting_by" style="z-index:98;">
 <option value="-date">Latest</option>
 <option value="date">Oldest</option>
 <option value="title">Alphabetically</option>
 </select>
-    <button class="sort-btn" type="submit">Sort</button>
+    <button class="sort-btn" type="submit" style="background-color:#59CE8F;">Sort</button>
   </div>
 </form>
 
