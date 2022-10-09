@@ -103,7 +103,7 @@ def sign_out(request):
 
 def search_and_sort(request):
 
-    section = request.GET.get("section")
+    section = request.GET.get("category")
     search_input = request.GET.get("search-input")
     sorting_element = request.GET.get("sorting_by")
 

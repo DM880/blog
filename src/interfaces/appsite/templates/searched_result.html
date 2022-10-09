@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Searched Results{% endblock %}
+{% block title %}
+{% if section %}
+{{ section }}
+{% else %}
+Searched Results
+{% endif %}
+{% endblock %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -9,7 +15,13 @@
 
 {% block content %}
 
-<h1 style="text-align:center;font-family:'Montserrat',sans-serif;">Searched Results</h1>
+<h1 style="text-align:center;font-family:'Montserrat',sans-serif;">
+{% if section %}
+{{ section }}
+{% else %}
+Searched Results
+{% endif %}
+</h1>
 
 <hr>
 
