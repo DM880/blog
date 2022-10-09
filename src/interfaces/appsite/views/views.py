@@ -97,6 +97,21 @@ def sign_out(request):
     logout(request)
     return redirect("home")
 
+# Search Input
+
+def search_input(request):
+
+    search_input = request.GET.get('search-input')
+
+    if search_input is not None:
+
+        searched_posts = Post.objects.filter(title__contains=search_input)
+
+    else:
+        searched_posts = []
+
+    return render(request, 'searched_result.html', {'searched_posts':searched_posts})
+
 
 # Newsletter
 

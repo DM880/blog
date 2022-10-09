@@ -46,6 +46,7 @@
 
   <div class="nav">
     <div class="nav-socials">
+      <i class="fa-solid fa-magnifying-glass" onclick="searchDiv()"></i>
       {% if request.user.is_authenticated %}<a title="Logout" class="fa-regular fa-user" href="{% url 'sign_out' %}"></a>
       {% else %}<a title="Login" class="fa-regular fa-user" href="{% url 'sign' %}"></a>
       {% endif %}
@@ -61,6 +62,17 @@
     <a href="{% url 'blog_section' section='LIFE' %}">LIFE</a>
     </div>
     </div>
+
+
+<!--Search div-->
+
+<div class="search-input-div" id="search_bar">
+  <form action="{% url 'search_input' %}" method="GET">
+    <input name="search-input" class="search-input"></input><input type="submit" value="Search"/>
+    </form>
+    </div>
+
+    <!----------------------->
 
       <div class="all-wrap">
 
@@ -98,6 +110,8 @@
     </div>
     {% endif %}
 <!-- ////////// -->
+
+<script src="{% static 'js/base.js' %}"></script>
 
 </body>
 

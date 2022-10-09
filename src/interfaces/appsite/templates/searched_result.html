@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Searched Results{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1 style="text-align:center;font-family:'Montserrat',sans-serif;">Searched Results</h1>
+
+<hr>
+
+<div class="row">
+
+{% for post in searched_posts %}
+
+  <div class="column img-wrap">
+      <h2 class="title-text">{{ post.title }}</h2>
+      <div class="img-txt-div">
+      <div onmouseover='imgOnHover({{post.id}})' onmouseout='imgOnOut({{post.id}})' class="img-txt">
+      <a href="{% url 'section_post' section=post.category post_id=post.id %}">{{ post.description|truncatechars:100 }}</a>
+      </div>
+      </div>
+    <a href="{% url 'section_post' section=post.category post_id=post.id %}">
+      <img id="post-img-{{post.id}}" onmouseover='imgOnHover({{post.id}})' onmouseout='imgOnOut({{post.id}})' src="/media/{{post.first_image.image}}" style="width:100%">
+      </a>
+  </div>
+
+
+{% endfor %}
+
+</div>
+
+{% include 'newsletter.html' %}
+
+<script  src="{% static 'js/sections.js' %}"></script>
+
+{% endblock %}

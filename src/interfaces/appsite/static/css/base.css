@@ -82,11 +82,18 @@ hr{
 
 /* Icons */
 
+.fa-magnifying-glass{
+  color: white;
+  font-size: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
 
 .fa-user{
   color: white;
   font-size: 28px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .fa-facebook-f{
@@ -123,6 +130,49 @@ background-clip: text;
   -o-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+
+/*Search Bar*/
+
+.search-input-div{
+  height: auto;
+  width: auto;
+  top: 50px;
+  right: 68px;
+  position: fixed;
+  z-index:99;
+  visibility: hidden;
+  font-family: 'Montserrat',sans-serif;
+}
+
+.search-input{
+  height: 30px;
+  width: 200px;
+  right: 70px;
+  border:solid #7db700;
+  outline: none;
+}
+
+.search-input-div input[type="submit"]{
+  text-align:center;
+  height: 30px;
+  width: 70px;
+  background: #7db700;
+  color: white;
+  border: 0;
+  top: 50px;
+  right: 10px;
+  -webkit-appearance: none;
+  position: fixed;
+  z-index:99;
+  border:solid #7db700;
+}
+
+.search-input-div input[type="submit"]:hover{
+  color: #7db700;
+  border:solid #7db700;
+  background-color: white;
 }
 
 /* Circle name */
