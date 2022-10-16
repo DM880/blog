@@ -115,10 +115,8 @@ def account_page(request):
         username = request.user.username
         email = request.user.email
 
-        newsletter = True
-
         try:
-            news = Newsletter.objects.get(email=email)
+            newsletter = Newsletter.objects.get(email=email)
         except Newsletter.DoesNotExist:
             newsletter = False
 
@@ -127,6 +125,29 @@ def account_page(request):
         "account_page.html",
         {"username": username, "email": email, "newsletter": newsletter},
     )
+
+
+@login_required
+def newsletter_subscribing(request):
+    if request.method == "POST":
+        if request.user.is_authenticated:
+
+            email = request.user.email
+            newsletter = Newsletter.objects.get(email=email)
+
+            news_in = request.POST.get("newsletter-checkbox")
+
+            if news_in == "checked":
+                newsletter.subscribed = True
+                newsletter.save()
+            else:
+                newsletter.subscribed = False
+                newsletter.save()
+
+        return redirect("account_page")
+
+    else:
+        return redirect("home")
 
 
 # Search and Sort

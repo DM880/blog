@@ -17,6 +17,11 @@ urlpatterns = [
     path("sign/sign_out/", views.sign_out, name="sign_out"),
     # Account Page
     path("account_page/", views.account_page, name="account_page"),
+    path(
+        "newsletter_subscribing/",
+        views.newsletter_subscribing,
+        name="newsletter_subscribing",
+    ),
     # Newsletter
     path("newsletter_sign_up/", views.newsletter_sign_up, name="newsletter_sign_up"),
     path(
