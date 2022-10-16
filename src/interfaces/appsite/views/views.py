@@ -73,11 +73,12 @@ def sign_up(request):
 
             return render(request, "sign/sign.html", {"email_exist": True})
 
-        elif User.objects.filter(first_name=first_name).exists():
+        elif User.objects.filter(first_name=username).exists():
 
             return render(request, "sign/sign.html", {"username_exist": True})
 
         else:
+
             data_user = {
                 "username": email,
                 "first_name": username,
@@ -86,6 +87,13 @@ def sign_up(request):
             }
 
             User.objects.create_user(**data_user)
+
+            try:
+                Newsletter.objects.get(email=email)
+            except Newsletter.DoesNotExist:
+                Newsletter.objects.create(name=username, email=email)
+
+
 
             return redirect("home")
 
@@ -96,6 +104,26 @@ def sign_up(request):
 def sign_out(request):
     logout(request)
     return redirect("home")
+
+
+# Account Page
+
+@login_required
+def account_page(request):
+
+    if request.user.is_authenticated:
+
+        username = request.user.username
+        email = request.user.email
+
+        newsletter = True
+
+        try:
+            news = Newsletter.objects.get(email=email)
+        except Newsletter.DoesNotExist:
+            newsletter = False
+
+    return render(request, "account_page.html", {'username':username, 'email':email, 'newsletter':newsletter})
 
 
 # Search and Sort

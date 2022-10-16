@@ -10,13 +10,13 @@ urlpatterns = [
     path("", views.home, name="home"),
     # Search and Sort
     path("search_and_sort/", views.search_and_sort, name="search_and_sort"),
-    # # Sort
-    # path("sort_posts/", views.sort_posts, name="sort_posts"),
     # Sign
     path("sign/", views.sign, name="sign"),
     path("sign/sign_in/", views.sign_in, name="sign_in"),
     path("sign/sign_up/", views.sign_up, name="sign_up"),
     path("sign/sign_out/", views.sign_out, name="sign_out"),
+    # Account Page
+    path("account_page/", views.account_page, name="account_page"),
     # Newsletter
     path("newsletter_sign_up/", views.newsletter_sign_up, name="newsletter_sign_up"),
     path(

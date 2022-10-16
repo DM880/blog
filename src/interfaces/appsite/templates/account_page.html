@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your Account{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/account_page.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <div class="centered-div">
+    <ul>
+      <li><p>Username: {{ username }}</p>
+    </li>
+      <li><p>Email: {{ email }}</p>
+    </li>
+      <li>
+          <form method="post" action="">
+              {% csrf_token %}
+      <input type="checkbox" name="newsletter-checkbox" id="news-in" {% if newsletter %}checked{% endif %}/>
+  <label for="news-in">Newsletter</label>
+    </li>
+    <li>
+        <button type="submit">Save</button>
+    </li>
+    </form>
+    <li><a href="{% url 'password_reset' %}">Reset Password</a>
+    </li>
+  <li><a href="">Delete Account</a>
+    </li>
+      </ul>
+  </div>
+</div>
+{% endblock %}

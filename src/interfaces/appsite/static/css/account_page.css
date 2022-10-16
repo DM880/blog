@@ -1,0 +1,18 @@
+.centered-div{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border: solid thin;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 100px;
+}
+
+.centered-div ul{
+    list-style-type: none;
+    margin-top: 30px;
+}
+
+.centered-div li{
+  margin-bottom: 30px;
+}
