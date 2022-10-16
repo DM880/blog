@@ -11,6 +11,7 @@
 <div>
   <div class="centered-div">
     <ul>
+      <li><a href="{% url 'sign_out' %}" style="text-decoration:none;">Log Out</a></li>
       <li><p>Username: {{ username }}</p>
     </li>
       <li><p>Email: {{ email }}</p>
@@ -27,7 +28,7 @@
     </form>
     <li><a href="{% url 'password_reset' %}">Reset Password</a>
     </li>
-  <li><a href="">Delete Account</a>
+  <li><a href="{% url 'delete_account' %}" onclick="return confirm('Are you sure you want to delete your Account?');" style="color:red;">Delete Account</a>
     </li>
       </ul>
   </div>

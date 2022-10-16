@@ -8,6 +8,8 @@ from .views import views
 
 urlpatterns = [
     path("", views.home, name="home"),
+    # Delete Account
+    path("delete_account/", views.delete_account, name="delete_account"),
     # Search and Sort
     path("search_and_sort/", views.search_and_sort, name="search_and_sort"),
     # Sign

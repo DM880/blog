@@ -104,6 +104,21 @@ def sign_out(request):
     return redirect("home")
 
 
+# Delete Account
+
+
+@login_required
+def delete_account(request):
+    if request.method == "POST":
+        email = request.user.email
+
+        user = User.objects.get(email=email)
+
+        user.delete()
+
+        return redirect("home")
+
+
 # Account Page
 
 
