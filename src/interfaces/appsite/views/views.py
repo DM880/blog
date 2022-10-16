@@ -93,8 +93,6 @@ def sign_up(request):
             except Newsletter.DoesNotExist:
                 Newsletter.objects.create(name=username, email=email)
 
-
-
             return redirect("home")
 
     return render(request, "sign/sign.html")
@@ -107,6 +105,7 @@ def sign_out(request):
 
 
 # Account Page
+
 
 @login_required
 def account_page(request):
@@ -123,7 +122,11 @@ def account_page(request):
         except Newsletter.DoesNotExist:
             newsletter = False
 
-    return render(request, "account_page.html", {'username':username, 'email':email, 'newsletter':newsletter})
+    return render(
+        request,
+        "account_page.html",
+        {"username": username, "email": email, "newsletter": newsletter},
+    )
 
 
 # Search and Sort
