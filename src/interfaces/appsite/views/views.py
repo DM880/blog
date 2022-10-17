@@ -127,7 +127,7 @@ def account_page(request):
 
     if request.user.is_authenticated:
 
-        username = request.user.username
+        username = request.user.first_name
         email = request.user.email
 
         try:
